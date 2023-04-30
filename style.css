@@ -18,7 +18,7 @@ body{
 h1{
     margin-top: 10px;
     height: 35px;
-    width: 700px;
+    width: 715px;
     font-size: 32px;
     color: #000;
     background-color: bisque;
@@ -30,15 +30,20 @@ h1{
 textarea{
     margin-top: 10px;
     height: 200px;
-    width: 700px;
+    width: 715px;
     font-size: 18px;
     color: #000;
 }
 
 .keyboard{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-around;
+
     margin-top: 10px;
-    height: 200px;
-    width: 700px;
+    height: 250px;
+    width: 715px;
     font-size: 18px;
     background-color: #fff;
     color: #000;
@@ -47,11 +52,88 @@ textarea{
 .info{
     margin-top: 10px;
     height: 24px;
-    width: 700px;
+    width: 715px;
     font-size: 18px;
     color: #000;
     background-color: bisque;
     display: flex;
     justify-content: left;
     align-items: center;
+}
+
+.key{
+    height: 40px;
+    width: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+    background-color: bisque;
+    color: #000;
+}
+
+.backspace{
+    height: 40px;
+    width: 158px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+    background-color: bisque;
+    color: #000;
+}
+
+.tab{
+    height: 40px;
+    width: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+    background-color: bisque;
+    color: #000;
+}
+
+.del{
+    height: 40px;
+    width: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+    background-color: bisque;
+    color: #000;
+}
+
+.capslock{
+    height: 40px;
+    width: 155px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+    background-color: bisque;
+    color: #000;
+}
+
+.enter{
+    height: 40px;
+    width: 95px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+    background-color: bisque;
+    color: #000;
+}
+
+.space{
+    height: 40px;
+    width: 330px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+    background-color: bisque;
+    color: #000;
 }
