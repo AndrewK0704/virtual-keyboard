@@ -94,17 +94,6 @@ textarea{
     color: #000;
 }
 
-.del{
-    height: 40px;
-    width: 50px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 18px;
-    background-color: bisque;
-    color: #000;
-}
-
 .capslock{
     height: 40px;
     width: 155px;
@@ -136,4 +125,9 @@ textarea{
     font-size: 18px;
     background-color: bisque;
     color: #000;
+}
+
+.active{
+    background-color: brown;
+    border-radius: 10px;
 }
