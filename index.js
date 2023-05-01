@@ -30,19 +30,15 @@ let arren2=['`','1','2','3','4','5','6','7','8','9','0','-','=','Q','W','E','R',
 
 let flag=false;
 let flag1=0;
-let flag3=0;
+let flag3=1;
 let arr1=[];
 
 if (flag1===0){
-    arr1=arrru;
+    arr1=arren;
 } else{
-    arr1=arrru2;
+    arr1=arren2;
 }
 
-addEventListener('load', (event)=>{
-
-
-})
 function init(){
     let out='';
     for (let i=0; i<13; i++){
@@ -69,7 +65,7 @@ function init(){
     out+='<div class="key" data="'+'ControlLeft'+'">'+'CtrL'+'</div>';
     out+='<div class="key" data="'+ 'Meta' +'">'+'Win'+'</div>';
     out+='<div class="key" data="'+ 'AltLeft' +'">'+'Alt'+'</div>';
-    out+='<div class="key space" data="'+ ' ' +'">'+''+'</div>';
+    out+='<div class="key space" data="'+ ' ' +'">'+' '+'</div>';
     out+='<div class="key" data="'+ 'AltRight' +'">'+'Alt'+'</div>';
     out+='<div class="key" data="'+ 'ArrowLeft' +'">'+'◄'+'</div>';
     out+='<div class="key" data="'+ 'ArrowDown' +'">'+'▼'+'</div>';
@@ -77,12 +73,12 @@ function init(){
     out+='<div class="key" data="'+'ControlRight'+'">'+'CtrL'+'</div>';
 
     document.querySelector('.keyboard').innerHTML=out;
+
 }
 
 init();
 
 document.onkeydown = function (event){
-    console.log(event);
     textarea.focus();
     if (event.getModifierState('CapsLock')){
 
@@ -120,9 +116,27 @@ document.onkeydown = function (event){
     } else if (event.code==='ShiftLeft')
     {
         document.querySelector('.keyboard .key[data="'+event.code+'"]').classList.add('active');
+        /*
+        if(flag3===0){
+            arr1=arrru2;
+            init();
+        } else {
+            arr1=arren2;
+            init();
+        }
+        */
     } else if (event.code==='ShiftRight')
     {
         document.querySelector('.keyboard .key[data="'+event.code+'"]').classList.add('active');
+        /*
+        if(flag3===0){
+            arr1=arrru2;
+            init();
+        } else {
+            arr1=arren2;
+            init();
+        }
+        */
     } else if (event.code==='Backslash')
     {
         document.querySelector('.keyboard .key[data="'+event.code+'"]').classList.add('active');
@@ -179,31 +193,50 @@ document.onkeyup = function (event){
     } else if (event.code==='ShiftLeft')
     {
         document.querySelector('.keyboard .key[data="'+event.code+'"]').classList.remove('active');
+        if(flag3===0){
+            arr1=arrru;
+            init();
+        } else {
+            arr1=arren;
+            init();
+        }
     } else if (event.code==='ShiftRight')
     {
         document.querySelector('.keyboard .key[data="'+event.code+'"]').classList.remove('active');
+        if(flag3===0){
+            arr1=arrru;
+            init();
+        } else {
+            arr1=arren;
+            init();
+        }
     } else if (event.code==='Backslash')
     {
         document.querySelector('.keyboard .key[data="'+event.code+'"]').classList.remove('active');
     }
     textarea.focus();
 
-    
 }
 
 /*
-function keyClick() {
-    console.log(this);
-}
-
-document.querySelector('.keyboard').addEventListener('click', keyClick);
-*/
-
-
-/*
-let activeKey=document.querySelector('.keyboard .key2');
-
-activeKey.addEventListener('click', (element)=>{
-activeKey.classList.toggle('active');
+document.querySelectorAll('.keyboard .key').forEach(function(element){
+    element.onclick = function(event){
+        document.querySelectorAll('.keyboard .key').forEach(function(element){
+            element.classList.remove('active');
+        });
+        let code = this.getAttribute('data');
+        this.classList.add('active');
+        console.log(code);
+    } 
 })
 */
+
+document.addEventListener('mousedown', (event)=>{
+        textarea.value+=event.target.innerHTML;
+        event.target.style.backgroundColor="brown";
+        event.target.style.borderRadius="10px";
+})
+document.addEventListener('mouseup', (event)=>{
+    event.target.style.backgroundColor="bisque";
+    event.target.style.borderRadius="0px";
+})
